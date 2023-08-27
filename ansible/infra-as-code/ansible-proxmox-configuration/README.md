@@ -20,13 +20,13 @@ Proxmox NETWORKING: VLANs, Bridges, and Bonds! : https://www.youtube.com/watch?v
 
 # Server specs
 ### Disks:
-- sda: Samsung SSD 840 EVO 250GB
-- nvme0n1: Micron 3400 NVMe 1024GB # Original
-- nvme1n1: Samsung SSD 970 EVO Plus 2TB
+- `sda`: Samsung SSD 840 EVO 250GB
+- `nvme0n1`: Micron 3400 NVMe 1024GB # Original
+- `nvme1n1`: Samsung SSD 970 EVO Plus 2TB
 
 ### NIC's:
-- enp2s0
-- wlp3s0 # Wi-Fi
+- `enp2s0`
+- `wlp3s0` # Wi-Fi
 
 # Deploy and configure
 1. Install Proxmox on a server
