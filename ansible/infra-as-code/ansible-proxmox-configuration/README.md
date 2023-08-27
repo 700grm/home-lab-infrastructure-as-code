@@ -3,6 +3,7 @@
 # TODO:
 ### Add to automation
 Before I do anything on Proxmox, I do this first... : https://www.youtube.com/watch?v=GoZaMgEgrHw
+
 Configure: WiFi: https://www.linuxbabe.com/debian/connect-to-wi-fi-from-terminal-on-debian-wpa-supplicant
 
 ### Networikin
