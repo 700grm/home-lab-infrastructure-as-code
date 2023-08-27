@@ -43,5 +43,5 @@ iface vmbr0 inet static
 3. Execute Ansible playbook
 
  # Config
- ISO files location
-'/var/lib/vz/template/iso'
+
+`/var/lib/vz/template/iso` -  ISO files location
