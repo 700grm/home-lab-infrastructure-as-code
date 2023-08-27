@@ -1,0 +1,42 @@
+# user: root 
+# password: empass
+# server_ip: 192.168.200.118
+# CTM_server_name: WIN-EM18
+
+
+iso_files:
+    # Debian
+  - linux_iso_name: debian-12.1.0-amd64-netinst.iso
+    linux_iso_url: https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/
+    linux_iso_checksum: sha512:9da6ae5b63a72161d0fd4480d0f090b250c4f6bf421474e4776e82eea5cb3143bf8936bf43244e438e74d581797fe87c7193bbefff19414e33932fe787b1400f
+
+  - linux_iso_name: debian-12.1.0-amd64-DVD-1.iso
+    linux_iso_url: https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/
+    linux_iso_checksum: sha512:f02bb8c64546b993cceece91d20e4c0e974425dc1bf4ecd822039e6cf853b2e4597642dfe9ad0fe3d5da2c75271ecc255ed34a90b36f47b7d7b1b37243cc63cc
+    
+    # Rocky 
+  - linux_iso_name: Rocky-9-latest-x86_64-minimal.iso
+    linux_iso_url: http://dl.rockylinux.org/pub/rocky/9/isos/x86_64/
+    linux_iso_checksum: sha256:06505828e8d5d052b477af5ce62e50b938021f5c28142a327d4d5c075f0670dc
+
+  - linux_iso_name: Rocky-8.8-x86_64-minimal.iso
+    linux_iso_url: http://dl.rockylinux.org/pub/rocky/8/isos/x86_64/
+    linux_iso_checksum: sha256:4ce0948699a26f66dffd705c0459d428439cef02d5db43d36a6ae62ba494fe9e
+    
+    # Ubuntu
+    # https://old-releases.ubuntu.com/releases/
+  - linux_iso_name: ubuntu-23.04-live-server-amd64.iso # Latest
+    linux_iso_url: https://releases.ubuntu.com/23.04/
+    linux_iso_checksum: sha256:c7cda48494a6d7d9665964388a3fc9c824b3bef0c9ea3818a1be982bc80d346b
+
+  - linux_iso_name: ubuntu-23.04-desktop-amd64.iso # Latest
+    linux_iso_url: https://releases.ubuntu.com/23.04/
+    linux_iso_checksum: sha256:a8cd6ccff865e17dd136658f6388480c9a5bc57274b29f7d5bd0ed855a9281a5
+    
+  - linux_iso_name: ubuntu-22.04.3-desktop-amd64.iso # LTS
+    linux_iso_url: https://releases.ubuntu.com/22.04.3/
+    linux_iso_checksum: sha256:a435f6f393dda581172490eda9f683c32e495158a780b5a1de422ee77d98e909
+
+  - linux_iso_name: ubuntu-22.04.3-live-server-amd64.iso # LTS
+    linux_iso_url: https://releases.ubuntu.com/22.04.3/
+    linux_iso_checksum: sha256:a4acfda10b18da50e2ec50ccaf860d7f20b389df8765611142305c0e911d16fd

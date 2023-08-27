@@ -1,0 +1,94 @@
+# Configure Proxmox Server
+
+- name: Configure WSL2 Oracle Linux
+  gather_facts: yes
+  hosts: all
+  remote_user: root
+  become: yes
+
+  tasks:
+    - name:
+      include_vars: vars.yml
+
+    - name: Disable PVE Enterprise repository
+      apt_repository:
+        repo: "deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise"
+        state: absent
+        filename: pve-enterprise
+        validate_certs: false
+        update_cache: false
+
+    - name: Disable PVE Enterprise repository
+      apt_repository:
+        repo: "deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise"
+        state: absent
+        filename: ceph
+        validate_certs: false
+        update_cache: false
+    
+    - name: Enable PVE No Subscription repository
+      apt_repository:
+        repo: deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription
+        state: present
+    
+    - name: Enable Cepth Quincy No Subscription repository
+      apt_repository:
+        repo: deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription
+        state: absent
+    
+    - name: Update APT repositories
+      apt:
+        update_cache: yes
+    
+    - name: Upgrade all packages
+      apt:  
+        upgrade: dist 
+        force_apt_get=yes
+    
+    - name: Install packages
+      apt:
+        name:
+          - vim
+        state: present
+
+    - name: Add cron job for apt update after reboot
+      ansible.builtin.cron:
+        name: "apt-update-after-reboot"
+        job: "apt update -y"
+        user: root
+        special_time: reboot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#    - name: Disable Proxmox Subscription Banner
+#      ansible.builtin.lineinfile:
+#        path: /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js
+#        regexp: '^Ext\.Msg\.show\({'
+#        line: 'void({ //Ext.Msg.show({'
+#        state: present
+#      notify: Restart pveproxy service
+#
+#  handlers:
+#    - name: Restart pveproxy service after Subscription Baner has been disabled
+#      systemd:
+#        name: pveproxy.service
+#        state: restarted

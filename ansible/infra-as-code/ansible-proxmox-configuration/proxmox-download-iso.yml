@@ -1,0 +1,29 @@
+- name: Downlod ISO files
+  gather_facts: yes
+  hosts: all
+  remote_user: root
+  become: yes
+
+  tasks:
+    - name: Load ISO data from file
+      include_vars:
+        file: vars.yml
+
+    - name: Download ISO files
+      loop: "{{ iso_files }}"
+      get_url:
+        url: "{{ item.linux_iso_url }}{{ item.linux_iso_name }}"
+        dest: "/var/lib/vz/template/iso/{{ item.linux_iso_name }}"
+        checksum: "{{ item.linux_iso_checksum }}"
+        mode: 0644
+      register: result
+
+#    - name: Display results
+#      debug:
+#        var: result
+
+    - name: Download stable Windows VirtIO Drivers
+      get_url:
+        url: https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+        dest: /var/lib/vz/template/iso/ # By not specifying file name it pulls it from website, for example: virtio-win-0.1.229.iso; NOTE: it will redownload the file every time
+        mode: 0644
