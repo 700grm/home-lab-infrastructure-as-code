@@ -26,7 +26,7 @@ Proxmox NETWORKING: VLANs, Bridges, and Bonds! : https://www.youtube.com/watch?v
 
 # Deploy and configure
 1. Install Proxmox on a server
-2. After instalation `replace` 'bridge-ports enp2s0' with 'bridge-ports enp2s0'
+2. After instalation replace `bridge-ports wlp3s0` with `bridge-ports enp2s0`
 
 ```
 iface vmbr0 inet static
@@ -36,7 +36,7 @@ iface vmbr0 inet static
         bridge-stp off
         bridge-fd 0
 ```
-
+3. Execute Ansible playbook
 
  # Config
  ISO files location
