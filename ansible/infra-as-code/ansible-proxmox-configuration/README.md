@@ -1,6 +1,6 @@
-# How to Install Proxmox VE Using a USB?
+# How to install Proxmox on Dell XPS 8950
 
-TODO:
+# TODO:
 
 Proxmox NETWORKING: VLANs, Bridges, and Bonds! : https://www.youtube.com/watch?v=zx5LFqyMPMU
 
@@ -26,8 +26,16 @@ Proxmox NETWORKING: VLANs, Bridges, and Bonds! : https://www.youtube.com/watch?v
 
 # Deploy and configure
 1. Install Proxmox on a server
-2. 
+2. After instalation `replace` 'bridge-ports enp2s0' with 'bridge-ports enp2s0'
 
+```
+iface vmbr0 inet static
+        address <IP ADDRESS>/24
+        gateway <IP ADDRESS>
+        bridge-ports enp2s0
+        bridge-stp off
+        bridge-fd 0
+```
 
 
  # Config
